@@ -43,6 +43,7 @@ export const updateVideo = async (req,res,next) =>{
         next(err)
     }
 }
+
 export const deleteVideo = async (req,res,next) =>{
     try {
         const video = await Video.findById(req.params.id)
@@ -99,6 +100,16 @@ export const getbyTag = async (req,res,next) =>{
     console.log(tags)
    try {
         const videos = await Video.find({tags:{$in: tags}}).limit(20)
+        res.status(200).json(videos)
+    } catch (err) {
+        next(err)
+    }
+}
+export const getbyUserId = async (req,res,next) =>{
+    const userId = req.query.userId.split(',')
+    console.log(userId)
+   try {
+        const videos = await Video.find({userId})
         res.status(200).json(videos)
     } catch (err) {
         next(err)
