@@ -23,7 +23,7 @@ const connect = () => {
 };
 
 app.use(cookieParser());
-const allowedOrigins = ['https://video-892c6.web.app', 'http://localhost:5173'];
+const allowedOrigins = ['https://video-892c6.firebaseapp.com', 'http://localhost:5173'];
 
 // CORS middleware options
 const corsOptions = {
